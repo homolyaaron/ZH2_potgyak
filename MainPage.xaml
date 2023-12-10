@@ -1,0 +1,47 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ZH2_elbasztadgyoker.MainPage"
+             xmlns:local="clr-namespace:ZH2_elbasztadgyoker"
+             Title="Hegymászás">
+    <ContentPage.Resources>
+        <local:DidClimbIt2ColorConverter x:Key="Converter"/>
+    </ContentPage.Resources>
+
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Label Text="Hegyek:"/>
+        <ListView ItemsSource="{Binding Mountains}" Grid.Column="0" Margin="20" ItemSelected="Selected_hegy">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <TextCell Text="{Binding Name}">
+                        <TextCell.TextColor>
+                            <Binding Path="Megmaszva">
+                                <Binding.Converter>
+                                    <local:DidClimbIt2ColorConverter />
+                                </Binding.Converter>
+                            </Binding>
+                        </TextCell.TextColor>
+                    </TextCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+        <Label Text="Név:" Grid.Column="1" Grid.Row="0"/>
+        <Label Text="{Binding nev}" Grid.Column="2" Grid.Row="0"/>
+        <Label Text="Magasság:" Grid.Column="1" Grid.Row="1"/>
+        <Label Text="{Binding magassag}" Grid.Column="2" Grid.Row="1"/>
+        <Label Text="Megmásztam" Grid.Column="1" Grid.Row="2"/>
+        <CheckBox IsChecked="{Binding megmaszva}" Grid.Column="2" Grid.Row="2"/>
+        <Button Text="Megmászások törlése" Grid.Column="1" Grid.ColumnSpan="2" Grid.Row="3"/>
+    </Grid>
+</ContentPage>
