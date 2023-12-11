@@ -41,7 +41,7 @@
         <Label Text="Magasság:" Grid.Column="1" Grid.Row="1"/>
         <Label Text="{Binding magassag}" Grid.Column="2" Grid.Row="1"/>
         <Label Text="Megmásztam" Grid.Column="1" Grid.Row="2"/>
-        <CheckBox IsChecked="{Binding megmaszva}" Grid.Column="2" Grid.Row="2"/>
-        <Button Text="Megmászások törlése" Grid.Column="1" Grid.ColumnSpan="2" Grid.Row="3"/>
+        <CheckBox IsChecked="{Binding megmaszva}" CheckedChanged="CheckBox_CheckedChanged" Grid.Column="2" Grid.Row="2"/>
+        <Button Text="Megmászások törlése" Clicked="Button_Clicked" Grid.Column="1" Grid.ColumnSpan="2" Grid.Row="3"/>
     </Grid>
 </ContentPage>
